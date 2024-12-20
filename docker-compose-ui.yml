@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  firefly-ui:
+    build: .
+    environment:
+      REACT_APP_API_BASE_URL: "${FIREFLY_URL}"
+    expose:
+      - "${FIREFLY_UI_PORT}"
+    networks:
+      - dokploy-network
+      
+networks:
+  dokploy-network:
+    external: true
+
